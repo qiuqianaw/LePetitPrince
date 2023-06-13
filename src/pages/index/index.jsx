@@ -1,24 +1,28 @@
-import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
+import { useEffect, useState } from 'react'
+import { Button } from 'antd-mobile'
+
 import './index.scss'
 
-export default class Index extends Component {
 
-  componentWillMount () { }
+const Index = () => {
 
-  componentDidMount () { }
+  const [text, setText] = useState('Hello world!')
 
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-      </View>
-    )
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setText('aowu')
+    }, 1000)
+  }, [])
+  
+  return (
+    <View className='index'>
+      <Text>{text}</Text>
+      <Button color='primary' fill='solid'>
+        Button
+      </Button>
+    </View>
+  ) 
 }
+
+export default Index
